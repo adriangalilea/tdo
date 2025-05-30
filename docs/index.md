@@ -1,10 +1,15 @@
-# treedo
+---
+title: tdo
+date: 2025-01-30
+---
 
-**🚧 WIP - This project is under active development**
+# tdo
+
+🚧 WIP
 
 Your entire life as a task tree, with leaves synced wherever you need them.
 
-*Site upcoming at [tdo.garden](https://tdo.garden)*
+*[tdo.garden](https://tdo.garden)*
 
 ## Why?
 
@@ -15,9 +20,9 @@ Your entire life as a task tree, with leaves synced wherever you need them.
 
 ## How it works
 
-You are the root of your task tree. Treedo maintains this complete tree centrally, while each folder contains only its relevant leaves (tasks.md files). 
+You are the root of your task tree. tdo maintains this complete tree centrally, while each folder contains only its relevant leaves (tasks.md files). 
 
-Treedo watches your tasks.md files for changes and automatically propagates updates to your central task repository (Taskwarrior). Edit any leaf, and your entire tree updates in real-time.
+tdo watches your tasks.md files for changes and automatically propagates updates to your central task repository (Taskwarrior). Edit any leaf, and your entire tree updates in real-time.
 
 ```
                         YOU
@@ -26,7 +31,7 @@ Treedo watches your tasks.md files for changes and automatically propagates upda
       │         │                 │          │
     life    projects          personal   learning
       │         │                 │          │
-   garden   treedo          writing    spanish
+   garden     tdo           writing    spanish
       │         │                 │          │
    plants    core              blog      verbs
    herbs     docs             ideas
@@ -34,12 +39,12 @@ Treedo watches your tasks.md files for changes and automatically propagates upda
 
 Folders contain only the leaves (tasks.md):
 ──────────────────────────────────────────────
-~/repos/treedo/         ~/life/garden/
+~/repos/tdo/            ~/life/garden/
 ├── tasks.md 🍃         └── plants/
 └── core/                   └── tasks.md 🍃
     └── tasks.md 🍃    
 
-Each task has a path: ~/repos/treedo/core/tasks.md → projects.treedo.core
+Each task has a path: ~/repos/tdo/core/tasks.md → projects.tdo.core
 ```
 
 *Note: tasks.md files work in both git repos and regular folders. See [FAQ](specification#faq) for details.*

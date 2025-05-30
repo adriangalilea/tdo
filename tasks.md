@@ -1,9 +1,9 @@
 ---
-treedo: 0.0.1
-project: side-quest.treedo
+tdo: 0.0.1
+project: side-quest.tdo
 ---
 
-# Treedo Development Tasks
+# tdo Development Tasks
 
 ## 🟡 In Progress
 
@@ -13,7 +13,7 @@ project: side-quest.treedo
 
 - [ ] [s2] Implement core sync engine #core <- s1
 
-- [ ] [s7] Consolidate brand name: treedo vs tdo[^2] #branding #decision
+- [x] [s7] Consolidate brand name: treedo vs tdo[^2] #branding #decision end:2025-01-30
 
 ## ✅ Completed
 
@@ -23,4 +23,4 @@ project: side-quest.treedo
 - [x] [s6] Add inline comments/annotations syntax #parser end:2025-01-29
 
 [^1]: Multiple iterations refining vision
-[^2]: CLI is tdo (makes sense), frontmatter uses treedo: 1.0.0, domain is tdo.garden. Consider introducing as "tdo (from treedo)" then use tdo consistently?
+[^2]: Decision made: tdo everywhere. Short, memorable, and tdo.garden reinforces the tree metaphor.

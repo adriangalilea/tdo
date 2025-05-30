@@ -1,8 +1,8 @@
-# Treedo Specification v1.0
+# tdo Specification v1.0
 
 ## Overview
 
-Treedo manages your entire life as a task tree, with leaves (tasks.md files) distributed across your filesystem. It uses Taskwarrior as a backend for robust task management and provides git-like conflict resolution.
+tdo manages your entire life as a task tree, with leaves (tasks.md files) distributed across your filesystem. It uses Taskwarrior as a backend for robust task management and provides git-like conflict resolution.
 
 ## Core Contract
 
@@ -16,18 +16,18 @@ Treedo manages your entire life as a task tree, with leaves (tasks.md files) dis
 ```
 Tree Path                    → File System Path
 life.garden.plants           → ~/life/garden/plants/tasks.md
-projects.treedo              → ~/repos/treedo/tasks.md
-projects.treedo.core         → ~/repos/treedo/core/tasks.md
+projects.tdo                 → ~/repos/tdo/tasks.md
+projects.tdo.core            → ~/repos/tdo/core/tasks.md
 personal.health.workout      → ~/health/workout/tasks.md
 learning.spanish.verbs       → ~/learning/spanish/verbs/tasks.md
 ```
 
-Note: Paths like `~/repos/treedo/` are git repositories, enabling task collaboration through version control. Others are regular folders for personal task management.
+Note: Paths like `~/repos/tdo/` are git repositories, enabling task collaboration through version control. Others are regular folders for personal task management.
 
 ### 3. Markdown File Format
 ```markdown
 ---
-treedo: 1.0.0
+tdo: 1.0.0
 project: life.garden.plants
 tags: gardening, outdoor, plants
 last_sync: 2024-01-15T10:30:00Z
@@ -77,7 +77,7 @@ sync_hash: sha256:abcd1234...
 
 ### 5. Sync State
 
-Centralized in `~/.task/treedo/state.json`:
+Centralized in `~/.task/tdo/state.json`:
 ```json
 {
   "version": "1.0",
@@ -153,7 +153,7 @@ tdo resolve p7 --merge
 
 1. **Dry Run Mode**: Default for destructive operations
 2. **Git Integration**: Rely on git history for rollback
-3. **Lock File**: System-wide lock in `~/.task/treedo/sync.lock`
+3. **Lock File**: System-wide lock in `~/.task/tdo/sync.lock`
 4. **Validation**: Schema validation before writing
 5. **Rollback**: Use git to revert changes
 
@@ -171,7 +171,7 @@ project/
     └── v2/
         └── tasks.md        # website.portfolio.v2
 
-~/.task/treedo/              # Central treedo data
+~/.task/tdo/                 # Central tdo data
 ├── state.json              # Global sync state for all repos
 ├── sync.lock               # System-wide sync lock
 └── config.json             # User preferences
@@ -182,7 +182,7 @@ project/
 Project-specific settings in tasks.md frontmatter:
 ```yaml
 ---
-treedo: 1.0.0
+tdo: 1.0.0
 project: website
 tags: backend, api  # Applied to ALL tasks in this file
 # Optional: Override default sections
@@ -222,7 +222,7 @@ Additional computed states:
 
 This mapping ensures your markdown sections align perfectly with Taskwarrior's filtering and reporting capabilities.
 
-Global user preferences in `~/.task/treedo/config.json`:
+Global user preferences in `~/.task/tdo/config.json`:
 ```json
 {
   "version": "1.0",
@@ -312,7 +312,7 @@ When referencing tasks:
 
 #### Dependency Model
 
-Tasks express dependencies inline using the `<-` arrow syntax. The inverse relationship (what this task blocks) is computed automatically by treedo, creating a bidirectional dependency graph internally. This keeps the markdown simple - you only maintain one direction.
+Tasks express dependencies inline using the `<-` arrow syntax. The inverse relationship (what this task blocks) is computed automatically by tdo, creating a bidirectional dependency graph internally. This keeps the markdown simple - you only maintain one direction.
 
 ```markdown
 - [ ] [n3] Gather W2s
@@ -323,7 +323,7 @@ Tasks express dependencies inline using the `<-` arrow syntax. The inverse relat
 Multiple dependencies: `Task <- s1, s2, s3`
 Cross-project: `Task <- ../other:k4` or `Task <- @projects.webapp:m2`
 
-Treedo knows that n3 blocks k4, even though it's only written once.
+tdo knows that n3 blocks k4, even though it's only written once.
 
 #### Cross-Project References & Relative Paths
 
@@ -335,7 +335,7 @@ Treedo knows that n3 blocks k4, even though it's only written once.
 ../insurance:m2         # Sibling folder
 ../../:p7              # Parent's dsid 
 ./receipts:b4          # Child folder
-@projects.treedo:k9    # Absolute from root
+@projects.tdo:k9    # Absolute from root
 ```
 
 #### Orphan Handling
@@ -345,7 +345,7 @@ When a referenced task is deleted or moved:
 - [ ] [n7] Review #legal contracts!!! <- legal:b4  # ⚠️ ORPHAN: Task not found
 ```
 
-During sync, treedo:
+During sync, tdo:
 1. Validates all cross-references
 2. Marks orphans with warnings
 3. Suggests new paths for moved tasks
