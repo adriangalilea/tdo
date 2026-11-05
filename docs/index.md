@@ -3,6 +3,8 @@ title: tdo
 date: 2025-01-30
 ---
 
+> **Superseded and archived.** tdo is indexed in [adriangalilea/self](https://github.com/adriangalilea/self) (`archive/2025-tdo`, with the code that was never pushed here); tasks read from files live on in tempo.
+
 # tdo
 
 🚧 WIP
